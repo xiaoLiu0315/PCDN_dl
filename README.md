@@ -1,60 +1,23 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PCDN 下载示例</title>
-</head>
-<body>
-    <h1>PCDN 下载示例</h1>
-    <h2>同时也是一个对 aiohttp 下载的示例, 内部含有异步</h2>
-    
-    <h3>目录</h3>
-    <ul>
-        <li><a href="#安装依赖">安装依赖</a></li>
-        <li><a href="#使用示例">使用示例</a></li>
-        <li><a href="#代码说明">代码说明</a></li>
-        <li><a href="#贡献">贡献</a></li>
-        <li><a href="#许可">许可</a></li>
-    </ul>
+ ```markdown
+# PCDN 下载示例 / PCDN Download Example
 
-    <h3 id="安装依赖">安装依赖</h3>
-    <p>首先，确保你已经安装了 <code>aiohttp</code>。可以使用以下命令安装：</p>
-    <pre><code>pip install aiohttp</code></pre>
+## 简介 / Introduction
 
-    <h3 id="使用示例">使用示例</h3>
-    <p>以下是一个简单的使用示例：</p>
-    <pre><code>import aiohttp
-import asyncio
+这是一个使用 PCDN 进行下载的示例，同时展示了如何使用 `aiohttp` 进行异步下载。  
+This is an example of downloading using PCDN, showcasing how to use `aiohttp` for asynchronous downloads.
 
-async def download_file(url, session):
-    async with session.get(url) as response:
-        with open(url.split('/')[-1], 'wb') as f:
-            f.write(await response.read())
+## 目录 / Table of Contents
 
-async def main(urls):
-    async with aiohttp.ClientSession() as session:
-        tasks = [download_file(url, session) for url in urls]
-        await asyncio.gather(*tasks)
+- [贡献 / Contributing](#贡献)
+- [许可 / License](#许可)
 
-if __name__ == '__main__':
-    urls = [
-        'https://example.com/file1',
-        'https://example.com/file2'
-    ]
-    asyncio.run(main(urls))</code></pre>
+## 贡献 / Contributing
 
-    <h3 id="代码说明">代码说明</h3>
-    <ul>
-        <li><code>download_file</code> 函数用于下载单个文件。</li>
-        <li><code>main</code> 函数创建一个 <code>ClientSession</code>，并使用 <code>asyncio.gather</code> 并发下载多个文件。</li>
-    </ul>
+欢迎提交问题或请求功能并修复，任何贡献都将被非常感谢。  
+Contributions are welcome. Any issues or feature requests are greatly appreciated.
 
-    <h3 id="贡献">贡献</h3>
-    <p>欢迎提交问题或请求功能，任何贡献都将被非常感谢。</p>
+## 许可 / License
 
-    <h3 id="许可">许可</h3>
-    <p>本项目使用 MIT 许可证，详细信息请查看 <a href="LICENSE">LICENSE</a> 文件。</p>
-</body>
-</html>
+本项目使用 MIT 许可证，详细信息请查看 [LICENSE](LICENSE) 文件。  
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 ```
